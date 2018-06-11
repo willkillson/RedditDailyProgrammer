@@ -21,6 +21,23 @@ public class Main {
 
         return answer;
     }
+    static boolean checkCustom(String in){
+        //D before E except after C
+        boolean answer = false;
+        in = in.toLowerCase();
+
+        if((in.contains("ed")==false)&&(in.contains("de")==false)){
+            answer = true;
+        }
+        if(in.contains("ed")&&in.contains("ced")){
+            answer = true;
+        }
+        if(in.contains("de")&&(in.contains("cde")==false)){
+            answer = true;
+        }
+
+        return answer;
+    }
     static ArrayList<String> readFile(String in){
         ArrayList<String> list = new  ArrayList<String>();
         File file = new File(in);
@@ -65,11 +82,21 @@ public class Main {
         words = readFile("enable1.txt");
         int exceptions = 0;
         for(String each:words){
-            System.out.println(each + " " + check(each));
+            //System.out.println(each + " " + check(each));
             if(check(each)==false){
                 exceptions++;
             }
         }
         System.out.println("There are "+ exceptions + " exceptions to the rule.");
+
+
+        exceptions = 0;
+        for(String each:words){
+            //System.out.println(each + " " + check(each));
+            if(checkCustom(each)==false){
+                exceptions++;
+            }
+        }
+        System.out.println("There are "+ exceptions + " d before e except after c exceptions to this custom rule.");
     }
 }

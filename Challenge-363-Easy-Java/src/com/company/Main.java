@@ -74,29 +74,31 @@ public class Main {
         words.add(new String("transceiver"));
         words.add(new String("veil"));
         words.add(new String("icier"));
+        words.add(new String("ceilingstein"));
 
         for(String each:words){
             System.out.println(each + " " + check(each));
         }
-        words.clear();
-        words = readFile("enable1.txt");
-        int exceptions = 0;
-        for(String each:words){
-            //System.out.println(each + " " + check(each));
-            if(check(each)==false){
-                exceptions++;
-            }
-        }
-        System.out.println("There are "+ exceptions + " exceptions to the rule.");
-
-
-        exceptions = 0;
-        for(String each:words){
-            //System.out.println(each + " " + check(each));
-            if(checkCustom(each)==false){
-                exceptions++;
-            }
-        }
-        System.out.println("There are "+ exceptions + " d before e except after c exceptions to this custom rule.");
+//        words.clear();
+//        words = readFile("enable1.txt");
+//        int exceptions = 0;
+//        for(String each:words){
+//            //System.out.println(each + " " + check(each));
+//            if(check(each)==false){
+//                exceptions++;
+//            }
+//        }
+//        System.out.println("There are "+ exceptions + " exceptions to the rule.");
+//
+//
+//        exceptions = 0;
+//        for(String each:words){
+//            //System.out.println(each + " " + check(each));
+//            if(checkCustom(each)==false){
+//                exceptions++;
+//            }
+//        }
+//        System.out.println("There are "+ exceptions + " d before e except after c exceptions to this custom rule.");
+//
     }
 }

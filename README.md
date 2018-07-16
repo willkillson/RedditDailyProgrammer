@@ -4,9 +4,14 @@ This is my collection of reddit daily programmer exercises. I plan to get to the
 https://www.reddit.com/r/dailyprogrammer/
 
 **InProgress** 
-Challenge-364-Hard-JS
+
+Challenge-364-Hard-JS 
+
+
 
 **Completed** 
+
+
 Challenge-1-Easy-Java
 Challenge-358-Intermediate-JS-
 Challenge-359-Easy-JS-

@@ -1,5 +1,5 @@
 ﻿
-
+var debugConsole = true;
 
 //vars
 var boardSizeWidth = 5;
@@ -244,12 +244,17 @@ function howEmptyLeft(piece) {
 }
 
 function shiftStackLeft(piece) {
+
+    var dem = Math.sqrt(piece.length);
+    var length = dem * dem;
+
     var newPiece = new Array(length);
+
     for (let i = 0; i < length; i++) {
         newPiece[i] = '-';
     }
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < dem; i++) {
         newPiece[0+i] = piece[1+i];
         newPiece[5+i] = piece[6+i];
         newPiece[10+i] = piece[11+i];
@@ -278,20 +283,48 @@ function rotateAndNormalize(piece) {
     return cp;
 }
 
-for (let i = 0; i < pieces.length; i++) {
-    let currentP = createPiece(pieces[i]);
-    printPiece(currentP);
-    currentP = rotateAndNormalize(currentP);
-    printPiece(currentP);
-    currentP = rotateAndNormalize(currentP);
-    printPiece(currentP);
+function placePieceBoard(board, piece, posx, posy) {
+    var hasFailed = false;
+    var boardDem = Math.sqrt(board.length);
+    var pieceDem = Math.sqrt(piece.length);
+
+    //check bounds
+    if (((posx + pieceDem) >= boardDem) || ((posy + pieceDem) >= boardDem)) {
+        if (debugConsole) {
+            console.log("___placePieceBoard___")
+            console.log("check bounds failed")
+        }
+
+        return -1;
+    }
+    //end check bounds
+
+    for (let i = posx; i < pieceDem*pieceDem; i++) {
+
+    }
+       
+
+
+    if (hasFailed === true) {
+        return -1;
+    }
+    else {
+        return 1;
+    }
 }
 
 
-
 var board = createBoard(10);
-
+var pI = createPiece(I);
+placePieceBoard(board, pI, 0, 0);
 printPiece(board);
+
+
+
+
+
+
+
 //var canvas = document.querySelector('canvas');
 //var scoreboard = document.getElementById("score");
 

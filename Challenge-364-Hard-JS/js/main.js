@@ -23,11 +23,11 @@ var pieces = [F, I, L, N, P, T, U, V, W, X, Y, Z];
 //endvar
 
 
-function createBoard(sizex, sizey) {
-    var board = new Array(sizex * sizey);
+function createBoard(size) {
+    var board = new Array(size * size);
     //init board to all spaces
     for (let i = 0; i < board.length; i++) {
-        board[i] = ' ';
+        board[i] = '-';
     }
 
     return board;
@@ -134,13 +134,17 @@ function createPiece(type) {
 }
 
 function printPiece(charArray) {
+    var dem = Math.sqrt(charArray.length);
 
-    console.log(charArray[0] + charArray[1] + charArray[2] + charArray[3] + charArray[4]);
-    console.log(charArray[5] + charArray[6] + charArray[7] + charArray[8] + charArray[9]);
-    console.log(charArray[10] + charArray[11] + charArray[12] + charArray[13] + charArray[14]);
-    console.log(charArray[15] + charArray[16] + charArray[17] + charArray[18] + charArray[19]);
-    console.log(charArray[20] + charArray[21] + charArray[22] + charArray[23] + charArray[24]);
-
+    var msg = "";
+    let k = 0;
+    for (let i = 0; i < dem; i++) {
+        for (let j = 0; j < dem; j++ , k++) {
+            msg +=charArray[k];
+        }
+        console.log(msg);
+        msg = "";
+    }
 }
 
 function rotatePiece(piece) {
@@ -172,12 +176,12 @@ function rotatePiece(piece) {
     return newPiece;
 }
 
-function indexPiece(piece) {
+function shiftStackUp(piece) {
 
     var dem = Math.sqrt(piece.length);
     var length = dem * dem;
 
-    console.log("___indexPiece___");
+    console.log("___shiftStackUp___");
     //moves the index of the piece to 0,0
     var newPiece = new Array(length);
     for (let i = 0; i < length; i++) {
@@ -203,18 +207,12 @@ function indexPiece(piece) {
         }
     }
 
-    var movLeftAmount = howEmptyLeft(newPiece);
-
-
-
-
-
     return newPiece;
 }
 
-
-
 function howEmptyLeft(piece) {
+
+    console.log("___howEmptyLeft___");
     let dem = Math.sqrt(piece.length);
     let length = piece.length;
 
@@ -245,28 +243,55 @@ function howEmptyLeft(piece) {
     }
 }
 
+function shiftStackLeft(piece) {
+    var newPiece = new Array(length);
+    for (let i = 0; i < length; i++) {
+        newPiece[i] = '-';
+    }
+
+    for (let i = 0; i < 4; i++) {
+        newPiece[0+i] = piece[1+i];
+        newPiece[5+i] = piece[6+i];
+        newPiece[10+i] = piece[11+i];
+        newPiece[15+i] = piece[16+i];
+        newPiece[20+i] = piece[21+i];
+    }
+    newPiece[4] = '-';
+    newPiece[9] = '-';
+    newPiece[14] = '-';
+    newPiece[19] = '-';
+    newPiece[24] = '-';
 
 
-//for (let i = 0; i < pieces.length; i++) {
+   
+    return newPiece;
+}
 
-//    let currentP = createPiece(pieces[i]);
-//    printPiece(currentP);
-//    currentP = rotatePiece(currentP);
-//    currentP = rotatePiece(currentP);
-//    currentP = indexPiece(currentP);
-//    printPiece(currentP);
-//}
+function rotateAndNormalize(piece) {
+
+    var cp = rotatePiece(piece);
+    cp = shiftStackUp(cp);
+    var times = howEmptyLeft(cp);
+    for (let i = 0; i < times; i++) {
+        cp = shiftStackLeft(cp);
+    }
+    return cp;
+}
+
+for (let i = 0; i < pieces.length; i++) {
+    let currentP = createPiece(pieces[i]);
+    printPiece(currentP);
+    currentP = rotateAndNormalize(currentP);
+    printPiece(currentP);
+    currentP = rotateAndNormalize(currentP);
+    printPiece(currentP);
+}
 
 
-let currentP = createPiece(pieces[4]);
-printPiece(currentP);
-currentP = rotatePiece(currentP);
-currentP = rotatePiece(currentP);
-currentP = indexPiece(currentP);
-console.log(howEmptyLeft(currentP));
-printPiece(currentP);
 
+var board = createBoard(10);
 
+printPiece(board);
 //var canvas = document.querySelector('canvas');
 //var scoreboard = document.getElementById("score");
 

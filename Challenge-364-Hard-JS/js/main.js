@@ -34,6 +34,7 @@ function createBoard(sizex, sizey) {
 }
 
 function createPiece(type) {
+    console.log("___createPiece___");
     var width = 5;//max width
     var height = 5;//max height
 
@@ -143,6 +144,7 @@ function printPiece(charArray) {
 }
 
 function rotatePiece(piece) {
+    console.log("___rotatePiece___");
     var newPiece = new Array(25);
     for (let i = 0; i < 25; i++) {
         newPiece[i] = ' ';
@@ -167,21 +169,44 @@ function rotatePiece(piece) {
     return newPiece;
 }
 
+function indexPiece(piece) {
+    console.log("___indexPiece___");
+    //moves the index of the piece to 0,0
+    var newPiece = new Array(25);
+    for (let i = 0; i < 25; i++) {
+        newPiece[i] = '-';
+    }
+
+    let startCopying = false;
+    for (let i = 0; i < 25; i++) {
+        if (piece[i] != '-') {
+            startCopying = true;
+            console.log("Started copying at, " + i+ " because i=="+ piece[i]);
+        }
+        if (startCopying) {
+            while (i % 5 != 0)
+                i--;
+            //find the index
+            var j = 0;
+            while (i < 25) {
+                newPiece[j] = piece[i];
+                j++;
+                i++;
+            }
+        }
+    }
+    return newPiece;
+}
+
 for (let i = 0; i < pieces.length; i++) {
 
     let currentP = createPiece(pieces[i]);
     printPiece(currentP);
     currentP = rotatePiece(currentP);
-    printPiece(currentP);
     currentP = rotatePiece(currentP);
+    currentP = indexPiece(currentP);
     printPiece(currentP);
-    currentP = rotatePiece(currentP);
-    printPiece(currentP);
-    currentP = rotatePiece(currentP);
-    printPiece(currentP);
-
 }
-
 
 
 

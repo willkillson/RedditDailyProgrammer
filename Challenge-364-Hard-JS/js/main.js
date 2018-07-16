@@ -77,53 +77,53 @@ function createPiece(type) {
             piece[6] = P;
             break;
         case T:
-            piece[0] = I;
-            piece[3] = I;
-            piece[6] = I;
-            piece[9] = I;
-            piece[12] = I;
+            piece[0] = T;
+            piece[1] = T;
+            piece[2] = T;
+            piece[4] = T;
+            piece[7] = T;
             break;
         case U:
-            piece[0] = I;
-            piece[3] = I;
-            piece[6] = I;
-            piece[9] = I;
-            piece[12] = I;
+            piece[0] = U;
+            piece[2] = U;
+            piece[3] = U;
+            piece[4] = U;
+            piece[5] = U;
             break;
         case V:
-            piece[0] = I;
-            piece[3] = I;
-            piece[6] = I;
-            piece[9] = I;
-            piece[12] = I;
+            piece[0] = V;
+            piece[3] = V;
+            piece[6] = V;
+            piece[7] = V;
+            piece[8] = V;
             break;
         case W:
-            piece[0] = I;
-            piece[3] = I;
-            piece[6] = I;
-            piece[9] = I;
-            piece[12] = I;
+            piece[0] = W;
+            piece[3] = W;
+            piece[4] = W;
+            piece[7] = W;
+            piece[8] = W;
             break;
         case X:
-            piece[0] = I;
-            piece[3] = I;
-            piece[6] = I;
-            piece[9] = I;
-            piece[12] = I;
+            piece[1] = X;
+            piece[4] = X;
+            piece[7] = X;
+            piece[3] = X;
+            piece[5] = X;
             break;
         case Y:
-            piece[0] = I;
-            piece[3] = I;
-            piece[6] = I;
-            piece[9] = I;
-            piece[12] = I;
+            piece[1] = Y;
+            piece[4] = Y;
+            piece[7] = Y;
+            piece[10] = Y;
+            piece[3] = Y;
             break;
         case Z:
-            piece[0] = I;
-            piece[3] = I;
-            piece[6] = I;
-            piece[9] = I;
-            piece[12] = I;
+            piece[0] = Z;
+            piece[1] = Z;
+            piece[4] = Z;
+            piece[7] = Z;
+            piece[8] = Z;
             break;
     }
 
@@ -158,6 +158,14 @@ printPiece(pF);
 printPiece(pL);
 printPiece(pN);
 printPiece(pP);
+printPiece(pT);
+printPiece(pU);
+printPiece(pV);
+printPiece(pW);
+printPiece(pX);
+printPiece(pY);
+printPiece(pZ);
+
 //var canvas = document.querySelector('canvas');
 //var scoreboard = document.getElementById("score");
 

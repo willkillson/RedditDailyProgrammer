@@ -56,25 +56,25 @@ function createPiece(type) {
             piece[7] = F;
             break;
         case L://
-            piece[0] = I;
-            piece[3] = I;
-            piece[6] = I;
-            piece[9] = I;
-            piece[12] = I;
+            piece[0] = L;
+            piece[3] = L;
+            piece[6] = L;
+            piece[9] = L;
+            piece[10] = L;
             break;
         case N:
-            piece[0] = I;
-            piece[3] = I;
-            piece[6] = I;
-            piece[9] = I;
-            piece[12] = I;
+            piece[1] = N;
+            piece[4] = N;
+            piece[7] = N;
+            piece[6] = N;
+            piece[9] = N;
             break;
         case P:
-            piece[0] = I;
-            piece[3] = I;
-            piece[6] = I;
-            piece[9] = I;
-            piece[12] = I;
+            piece[0] = P;
+            piece[1] = P;
+            piece[3] = P;
+            piece[4] = P;
+            piece[6] = P;
             break;
         case T:
             piece[0] = I;
@@ -156,8 +156,8 @@ let pZ = createPiece(Z);
 printPiece(pI);
 printPiece(pF);
 printPiece(pL);
-
-
+printPiece(pN);
+printPiece(pP);
 //var canvas = document.querySelector('canvas');
 //var scoreboard = document.getElementById("score");
 

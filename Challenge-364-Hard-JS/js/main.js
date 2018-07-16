@@ -32,98 +32,98 @@ function createBoard(sizex, sizey) {
 }
 
 function createPiece(type) {
-    var width = 3;//max width
+    var width = 5;//max width
     var height = 5;//max height
 
     var piece = Array(width * height);
     for (let i = 0; i < piece.length; i++) {
-        piece[i] = ' ';
+        piece[i] = '-';
     }
 
     switch (type) {
         case I:
             piece[0] = I;
-            piece[3] = I;
-            piece[6] = I;
-            piece[9] = I;
-            piece[12] = I;
+            piece[5] = I;
+            piece[10] = I;
+            piece[15] = I;
+            piece[20] = I;
             break;
         case F://1,2,3,4,7
             piece[1] = F;
+            piece[6] = F;
+            piece[11] = F;
             piece[2] = F;
-            piece[3] = F;
-            piece[4] = F;
-            piece[7] = F;
+            piece[5] = F;
             break;
         case L://
             piece[0] = L;
-            piece[3] = L;
-            piece[6] = L;
-            piece[9] = L;
+            piece[5] = L;
             piece[10] = L;
+            piece[15] = L;
+            piece[16] = L;
             break;
         case N:
             piece[1] = N;
-            piece[4] = N;
-            piece[7] = N;
             piece[6] = N;
-            piece[9] = N;
+            piece[11] = N;
+            piece[10] = N;
+            piece[15] = N;
             break;
         case P:
             piece[0] = P;
             piece[1] = P;
-            piece[3] = P;
-            piece[4] = P;
+            piece[5] = P;
             piece[6] = P;
+            piece[10] = P;
             break;
         case T:
             piece[0] = T;
             piece[1] = T;
             piece[2] = T;
-            piece[4] = T;
-            piece[7] = T;
+            piece[6] = T;
+            piece[11] = T;
             break;
         case U:
             piece[0] = U;
             piece[2] = U;
-            piece[3] = U;
-            piece[4] = U;
             piece[5] = U;
+            piece[6] = U;
+            piece[7] = U;
             break;
         case V:
             piece[0] = V;
-            piece[3] = V;
-            piece[6] = V;
-            piece[7] = V;
-            piece[8] = V;
+            piece[5] = V;
+            piece[10] = V;
+            piece[11] = V;
+            piece[12] = V;
             break;
         case W:
             piece[0] = W;
-            piece[3] = W;
-            piece[4] = W;
-            piece[7] = W;
-            piece[8] = W;
+            piece[5] = W;
+            piece[6] = W;
+            piece[11] = W;
+            piece[12] = W;
             break;
         case X:
             piece[1] = X;
-            piece[4] = X;
-            piece[7] = X;
-            piece[3] = X;
+            piece[6] = X;
+            piece[11] = X;
             piece[5] = X;
+            piece[7] = X;
             break;
         case Y:
             piece[1] = Y;
-            piece[4] = Y;
-            piece[7] = Y;
-            piece[10] = Y;
-            piece[3] = Y;
+            piece[6] = Y;
+            piece[11] = Y;
+            piece[16] = Y;
+            piece[5] = Y;
             break;
         case Z:
             piece[0] = Z;
             piece[1] = Z;
-            piece[4] = Z;
-            piece[7] = Z;
-            piece[8] = Z;
+            piece[6] = Z;
+            piece[11] = Z;
+            piece[12] = Z;
             break;
     }
 
@@ -132,11 +132,11 @@ function createPiece(type) {
 
 function printPiece(charArray) {
 
-    console.log(charArray[0] + charArray[1] + charArray[2]);
-    console.log(charArray[3] + charArray[4] + charArray[5]);
-    console.log(charArray[6] + charArray[7] + charArray[8]);
-    console.log(charArray[9] + charArray[10] + charArray[11]);
-    console.log(charArray[12] + charArray[13] + charArray[14]);
+    console.log(charArray[0] + charArray[1] + charArray[2] + charArray[3] + charArray[4]);
+    console.log(charArray[5] + charArray[6] + charArray[7] + charArray[8] + charArray[9]);
+    console.log(charArray[10] + charArray[11] + charArray[12] + charArray[13] + charArray[14]);
+    console.log(charArray[15] + charArray[16] + charArray[17] + charArray[18] + charArray[19]);
+    console.log(charArray[20] + charArray[21] + charArray[22] + charArray[23] + charArray[24]);
 
 }
 

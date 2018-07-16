@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>WILLKILLSON-PC</Machine>
+    <WindowsUser>willk</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Release|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>e314ec8f-fb41-481c-aced-b757c9b8875f</PackageIdentityName>
+    <PackageIdentityPublisher>CN=willk</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\bld\Release\</IntermediateOutputPath>
+    <RemoteDeploymentType>
+    </RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>
+    </WindowsSdkPath>
+    <LayoutDir>C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\bin\Release\AppX</LayoutDir>
+    <RegisteredManifestChecksum>93FA8DDC71A9B0E833702359CEE28225D779C4A293DDAE2131171EDC6746A882</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>e314ec8f-fb41-481c-aced-b757c9b8875f_1.0.0.0_neutral__yk2vx47a8qay8</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>e314ec8f-fb41-481c-aced-b757c9b8875f_yk2vx47a8qay8!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>e314ec8f-fb41-481c-aced-b757c9b8875f</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=willk</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\bin\Release\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-07-16T21:02:55.046</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\index.html">
+      <PackagePath>index.html</PackagePath>
+      <Modified>2018-07-16T21:02:03.062</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\UnitTester.html">
+      <PackagePath>UnitTester.html</PackagePath>
+      <Modified>2018-07-16T21:02:02.991</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\images\LockScreenLogo.scale-200.png">
+      <PackagePath>images\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2018-07-16T21:02:03.059</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\images\SplashScreen.scale-200.png">
+      <PackagePath>images\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-07-16T21:02:03.060</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\images\Square150x150Logo.scale-200.png">
+      <PackagePath>images\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-07-16T21:02:03.060</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\images\Square44x44Logo.scale-200.png">
+      <PackagePath>images\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-07-16T21:02:03.060</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\images\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>images\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-07-16T21:02:03.061</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\images\StoreLogo.png">
+      <PackagePath>images\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-07-16T21:02:03.061</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\images\Wide310x150Logo.scale-200.png">
+      <PackagePath>images\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-07-16T21:02:03.061</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\js\main.js">
+      <PackagePath>js\main.js</PackagePath>
+      <Modified>2018-07-16T21:02:03.062</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\test\tests.js">
+      <PackagePath>test\tests.js</PackagePath>
+      <Modified>2018-07-16T21:02:03.063</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\css\default.css">
+      <PackagePath>css\default.css</PackagePath>
+      <Modified>2018-07-16T21:02:03.058</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\bin\Release\ReverseMap\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-07-16T21:02:54.905</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

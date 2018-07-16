@@ -19,7 +19,6 @@ const Y = 'Y';
 const Z = 'Z';
 
 var pieces = [F, I, L, N, P, T, U, V, W, X, Y, Z];
-
 //endvar
 
 
@@ -313,13 +312,73 @@ function placePieceBoard(board, piece, posx, posy) {
     }
 }
 
+function realWidthOfPiece(piece) {
+    var pieceDem = Math.sqrt(piece.length);
+    var atEndofPiece = false;
+    var width = 0;
 
-var board = createBoard(10);
+    var vert = [0, 5, 10, 15, 20, 1, 6, 11, 16, 21, 2, 7, 12, 17, 22, 3, 8, 13, 18, 23, 4, 9, 14, 19, 24];
+
+    var c1 = false;
+    var c2 = false;
+    var c3 = false;
+    var c4 = false;
+    var c5 = false;
+
+    piece[vert[i]] != '-'
+    var k = 0;
+    for (var i = 0; i < 5; i++) {
+        for (var j = 0; j < 5; j++,k++) {
+            if (piece[vert[k]] != '-') {
+                switch (i) {
+                    case 0:
+                        c1 = true;
+                        break;
+                    case 1:
+                        c2 = true;
+                        break;
+                    case 2:
+                        c3 = true;
+                        break;
+                    case 3:
+                        c4 = true;
+                        break;
+                    case 4:
+                        c5 = true;
+                        break;
+                }
+            }
+
+        }
+    }
+
+    if (c1)
+        width++;
+    if (c2)
+        width++;
+    if (c3)
+        width++;
+    if (c4)
+        width++;
+    if (c5)
+        width++;
+
+    return width;
+}
+
+function realHeightOfPiece(piece) {
+
+}
+
+
+
 var pI = createPiece(I);
-placePieceBoard(board, pI, 0, 0);
-printPiece(board);
+var pW = createPiece(W);
+console.log(realWidthOfPiece(pI));
+console.log(realWidthOfPiece(pW));
+printPiece(pI);
 
-
+printPiece(pW);
 
 
 

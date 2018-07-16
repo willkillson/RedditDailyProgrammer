@@ -48,6 +48,83 @@ function createPiece(type) {
             piece[9] = I;
             piece[12] = I;
             break;
+        case F://1,2,3,4,7
+            piece[1] = F;
+            piece[2] = F;
+            piece[3] = F;
+            piece[4] = F;
+            piece[7] = F;
+            break;
+        case L://
+            piece[0] = I;
+            piece[3] = I;
+            piece[6] = I;
+            piece[9] = I;
+            piece[12] = I;
+            break;
+        case N:
+            piece[0] = I;
+            piece[3] = I;
+            piece[6] = I;
+            piece[9] = I;
+            piece[12] = I;
+            break;
+        case P:
+            piece[0] = I;
+            piece[3] = I;
+            piece[6] = I;
+            piece[9] = I;
+            piece[12] = I;
+            break;
+        case T:
+            piece[0] = I;
+            piece[3] = I;
+            piece[6] = I;
+            piece[9] = I;
+            piece[12] = I;
+            break;
+        case U:
+            piece[0] = I;
+            piece[3] = I;
+            piece[6] = I;
+            piece[9] = I;
+            piece[12] = I;
+            break;
+        case V:
+            piece[0] = I;
+            piece[3] = I;
+            piece[6] = I;
+            piece[9] = I;
+            piece[12] = I;
+            break;
+        case W:
+            piece[0] = I;
+            piece[3] = I;
+            piece[6] = I;
+            piece[9] = I;
+            piece[12] = I;
+            break;
+        case X:
+            piece[0] = I;
+            piece[3] = I;
+            piece[6] = I;
+            piece[9] = I;
+            piece[12] = I;
+            break;
+        case Y:
+            piece[0] = I;
+            piece[3] = I;
+            piece[6] = I;
+            piece[9] = I;
+            piece[12] = I;
+            break;
+        case Z:
+            piece[0] = I;
+            piece[3] = I;
+            piece[6] = I;
+            piece[9] = I;
+            piece[12] = I;
+            break;
     }
 
     return piece;
@@ -63,9 +140,22 @@ function printPiece(charArray) {
 
 }
 
-let p = createPiece(I);
+let pI = createPiece(I);
+let pF = createPiece(F);
+let pL = createPiece(L);
+let pN = createPiece(N);
+let pP = createPiece(P);
+let pT = createPiece(T);
+let pU = createPiece(U);
+let pV = createPiece(V);
+let pW = createPiece(W);
+let pX = createPiece(X);
+let pY = createPiece(Y);
+let pZ = createPiece(Z);
 
-printPiece(p);
+printPiece(pI);
+printPiece(pF);
+printPiece(pL);
 
 
 //var canvas = document.querySelector('canvas');

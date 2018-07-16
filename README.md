@@ -5,10 +5,10 @@ https://www.reddit.com/r/dailyprogrammer/
 
 **Progress** 
 
-- [ ] Challenge-364-Hard-JS 
 - [x] Challenge-1-Easy-Java
 - [x] Challenge-358-Intermediate-JS-
 - [x] Challenge-359-Easy-JS-
 - [x] Challenge-361-Easy-Java
 - [x] Challenge-362-Intermediate-Java
 - [x] Challenge-363-Easy-Java
+- [ ] Challenge-364-Hard-JS 

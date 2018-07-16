@@ -1,5 +1,5 @@
 ﻿
-var debugConsole = true;
+var debugConsole = false;
 
 //vars
 var boardSizeWidth = 5;
@@ -33,7 +33,8 @@ function createBoard(size) {
 }
 
 function createPiece(type) {
-    console.log("___createPiece___");
+    if (debugConsole)
+        console.log("___createPiece___");
     var width = 5;//max width
     var height = 5;//max height
 
@@ -147,7 +148,9 @@ function printPiece(charArray) {
 }
 
 function rotatePiece(piece) {
-    console.log("___rotatePiece___");
+    if (debugConsole)
+        console.log("___rotatePiece___");
+
     var dem = Math.sqrt(piece.length);
     var length = dem * dem;
 
@@ -180,7 +183,8 @@ function shiftStackUp(piece) {
     var dem = Math.sqrt(piece.length);
     var length = dem * dem;
 
-    console.log("___shiftStackUp___");
+    if (debugConsole)
+     console.log("___shiftStackUp___");
     //moves the index of the piece to 0,0
     var newPiece = new Array(length);
     for (let i = 0; i < length; i++) {
@@ -191,7 +195,8 @@ function shiftStackUp(piece) {
     for (let i = 0; i < length; i++) {
         if (piece[i] != '-') {
             startCopying = true;
-            console.log("Started copying at, " + i+ " because i=="+ piece[i]);
+            if (debugConsole)
+                console.log("Started copying at, " + i+ " because i=="+ piece[i]);
         }
         if (startCopying) {
             while (i % dem != 0)
@@ -210,8 +215,8 @@ function shiftStackUp(piece) {
 }
 
 function howEmptyLeft(piece) {
-
-    console.log("___howEmptyLeft___");
+    if (debugConsole)
+        console.log("___howEmptyLeft___");
     let dem = Math.sqrt(piece.length);
     let length = piece.length;
 
@@ -224,7 +229,8 @@ function howEmptyLeft(piece) {
         for (let i = length - a; i >= b; i = i - dem) {
             if (piece[i] != '-') {
                 movLeft = false;
-                console.log("Found at, " + i);
+                if (debugConsole)
+                    console.log("Found at, " + i);
             }
     
         }
@@ -325,7 +331,6 @@ function realWidthOfPiece(piece) {
     var c4 = false;
     var c5 = false;
 
-    piece[vert[i]] != '-'
     var k = 0;
     for (var i = 0; i < 5; i++) {
         for (var j = 0; j < 5; j++,k++) {
@@ -367,21 +372,68 @@ function realWidthOfPiece(piece) {
 }
 
 function realHeightOfPiece(piece) {
+    var pieceDem = Math.sqrt(piece.length);
+    var atEndofPiece = false;
+    var width = 0;
 
+    var r1 = false;
+    var r2 = false;
+    var r3 = false;
+    var r4 = false;
+    var r5 = false;
+
+    var k = 0;
+    for (var i = 0; i < 5; i++) {
+        for (var j = 0; j < 5; j++ , k++) {
+            if (piece[k] != '-') {
+                switch (i) {
+                    case 0:
+                        r1 = true;
+                        break;
+                    case 1:
+                        r2 = true;
+                        break;
+                    case 2:
+                        r3 = true;
+                        break;
+                    case 3:
+                        r4 = true;
+                        break;
+                    case 4:
+                        r5 = true;
+                        break;
+                }
+            }
+
+        }
+    }
+
+    if (r1)
+        width++;
+    if (r2)
+        width++;
+    if (r3)
+        width++;
+    if (r4)
+        width++;
+    if (r5)
+        width++;
+
+    return width;
 }
 
 
 
 var pI = createPiece(I);
-var pW = createPiece(W);
-console.log(realWidthOfPiece(pI));
-console.log(realWidthOfPiece(pW));
+
+console.log("Width = " + realWidthOfPiece(pI));
+console.log("Height = " + realHeightOfPiece(pI));
 printPiece(pI);
 
-printPiece(pW);
-
-
-
+pI = rotateAndNormalize(pI);
+console.log("Width = " + realWidthOfPiece(pI));
+console.log("Height = " + realHeightOfPiece(pI));
+printPiece(pI);
 
 
 //var canvas = document.querySelector('canvas');

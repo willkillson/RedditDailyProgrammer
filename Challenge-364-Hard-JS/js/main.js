@@ -18,6 +18,8 @@ const X = 'X';
 const Y = 'Y';
 const Z = 'Z';
 
+var pieces = [F, I, L, N, P, T, U, V, W, X, Y, Z];
+
 //endvar
 
 
@@ -140,31 +142,48 @@ function printPiece(charArray) {
 
 }
 
-let pI = createPiece(I);
-let pF = createPiece(F);
-let pL = createPiece(L);
-let pN = createPiece(N);
-let pP = createPiece(P);
-let pT = createPiece(T);
-let pU = createPiece(U);
-let pV = createPiece(V);
-let pW = createPiece(W);
-let pX = createPiece(X);
-let pY = createPiece(Y);
-let pZ = createPiece(Z);
+function rotatePiece(piece) {
+    var newPiece = new Array(25);
+    for (let i = 0; i < 25; i++) {
+        newPiece[i] = ' ';
+    }
+    var j = 0;
+    for (let i = 20; i >= 0; i = i - 5, j++) {
+        newPiece[j] = piece[i];
+    }
+    for (let i = 21; i >= 1; i = i - 5, j++) {
+        newPiece[j] = piece[i];
+    }
+    for (let i = 22; i >= 2; i = i - 5, j++) {
+        newPiece[j] = piece[i];
+    }
+    for (let i = 23; i >= 3; i = i - 5, j++) {
+        newPiece[j] = piece[i];
+    }
+    for (let i = 24; i >= 4; i = i - 5, j++) {
+        newPiece[j] = piece[i];
+    }
 
-printPiece(pI);
-printPiece(pF);
-printPiece(pL);
-printPiece(pN);
-printPiece(pP);
-printPiece(pT);
-printPiece(pU);
-printPiece(pV);
-printPiece(pW);
-printPiece(pX);
-printPiece(pY);
-printPiece(pZ);
+    return newPiece;
+}
+
+for (let i = 0; i < pieces.length; i++) {
+
+    let currentP = createPiece(pieces[i]);
+    printPiece(currentP);
+    currentP = rotatePiece(currentP);
+    printPiece(currentP);
+    currentP = rotatePiece(currentP);
+    printPiece(currentP);
+    currentP = rotatePiece(currentP);
+    printPiece(currentP);
+    currentP = rotatePiece(currentP);
+    printPiece(currentP);
+
+}
+
+
+
 
 //var canvas = document.querySelector('canvas');
 //var scoreboard = document.getElementById("score");

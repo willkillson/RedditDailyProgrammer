@@ -145,24 +145,27 @@ function printPiece(charArray) {
 
 function rotatePiece(piece) {
     console.log("___rotatePiece___");
-    var newPiece = new Array(25);
-    for (let i = 0; i < 25; i++) {
-        newPiece[i] = ' ';
+    var dem = Math.sqrt(piece.length);
+    var length = dem * dem;
+
+    var newPiece = new Array(length);
+    for (let i = 0; i < length; i++) {
+        newPiece[i] = '-';
     }
     var j = 0;
-    for (let i = 20; i >= 0; i = i - 5, j++) {
+    for (let i = length-5; i >= 0; i = i - dem, j++) {
         newPiece[j] = piece[i];
     }
-    for (let i = 21; i >= 1; i = i - 5, j++) {
+    for (let i = length-4; i >= 1; i = i - dem, j++) {
         newPiece[j] = piece[i];
     }
-    for (let i = 22; i >= 2; i = i - 5, j++) {
+    for (let i = length-3; i >= 2; i = i - dem, j++) {
         newPiece[j] = piece[i];
     }
-    for (let i = 23; i >= 3; i = i - 5, j++) {
+    for (let i = length-2; i >= 3; i = i - dem, j++) {
         newPiece[j] = piece[i];
     }
-    for (let i = 24; i >= 4; i = i - 5, j++) {
+    for (let i = length-1; i >= 4; i = i - dem, j++) {
         newPiece[j] = piece[i];
     }
 
@@ -170,44 +173,98 @@ function rotatePiece(piece) {
 }
 
 function indexPiece(piece) {
+
+    var dem = Math.sqrt(piece.length);
+    var length = dem * dem;
+
     console.log("___indexPiece___");
     //moves the index of the piece to 0,0
-    var newPiece = new Array(25);
-    for (let i = 0; i < 25; i++) {
+    var newPiece = new Array(length);
+    for (let i = 0; i < length; i++) {
         newPiece[i] = '-';
     }
 
     let startCopying = false;
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < length; i++) {
         if (piece[i] != '-') {
             startCopying = true;
             console.log("Started copying at, " + i+ " because i=="+ piece[i]);
         }
         if (startCopying) {
-            while (i % 5 != 0)
+            while (i % dem != 0)
                 i--;
             //find the index
             var j = 0;
-            while (i < 25) {
+            while (i < length) {
                 newPiece[j] = piece[i];
                 j++;
                 i++;
             }
         }
     }
+
+    var movLeftAmount = howEmptyLeft(newPiece);
+
+
+
+
+
     return newPiece;
 }
 
-for (let i = 0; i < pieces.length; i++) {
 
-    let currentP = createPiece(pieces[i]);
-    printPiece(currentP);
-    currentP = rotatePiece(currentP);
-    currentP = rotatePiece(currentP);
-    currentP = indexPiece(currentP);
-    printPiece(currentP);
+
+function howEmptyLeft(piece) {
+    let dem = Math.sqrt(piece.length);
+    let length = piece.length;
+
+    let moveLeftAmount = 0;
+    let movLeft = true;
+
+    let a = 5;
+    let b = 0;
+    while (1) {
+        for (let i = length - a; i >= b; i = i - dem) {
+            if (piece[i] != '-') {
+                movLeft = false;
+                console.log("Found at, " + i);
+            }
+    
+        }
+        if (movLeft) {
+            moveLeftAmount++;
+        }
+        else {
+            return moveLeftAmount;
+        }
+        a--;
+        b++;
+        if (a == 0) {
+            return moveLeftAmount;
+        }
+    }
 }
 
+
+
+//for (let i = 0; i < pieces.length; i++) {
+
+//    let currentP = createPiece(pieces[i]);
+//    printPiece(currentP);
+//    currentP = rotatePiece(currentP);
+//    currentP = rotatePiece(currentP);
+//    currentP = indexPiece(currentP);
+//    printPiece(currentP);
+//}
+
+
+let currentP = createPiece(pieces[4]);
+printPiece(currentP);
+currentP = rotatePiece(currentP);
+currentP = rotatePiece(currentP);
+currentP = indexPiece(currentP);
+console.log(howEmptyLeft(currentP));
+printPiece(currentP);
 
 
 //var canvas = document.querySelector('canvas');

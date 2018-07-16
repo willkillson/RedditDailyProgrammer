@@ -9,20 +9,45 @@
 //var boardSizeWidth = 5;
 //var boardSizeHeight = 5;
 
-////endvar
+//endvar
+function createBoard(sizex, sizey) {
+    var board = new Array(sizex * sizey);
+    //init board to all spaces
+    for (let i = 0; i < board.length; i++) {
+        board[i] = ' ';
+    }
 
-
-
-function addNumbers(a, b) {
-    return a + b;
+    return board;
 }
 
+//const F = 'F';
+//const I = 'I';
+//const L = 'L';
+//const N = 'N';
+//const P = 'P';
+//const T = 'T';
+//const U = 'U';
+//const V = 'V';
+//const W = 'W';
+//const X = 'X';
+//const Y = 'Y';
+//const Z = 'Z';
 
-var k = 5;
-var l = 3;
 
-var p = addNumbers(k, l);
-console.log(p);
+
+
+
+
+//function addNumbers(a, b) {
+//    return a + b;
+//}
+
+
+//var k = 5;
+//var l = 3;
+
+//var p = addNumbers(k, l);
+//console.log(p);
 
 //function mainloop() {
 

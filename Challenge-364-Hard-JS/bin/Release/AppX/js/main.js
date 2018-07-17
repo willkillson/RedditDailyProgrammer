@@ -1,5 +1,5 @@
 ﻿
-var debugConsole = true;
+var debugConsole = false;
 
 //vars
 var boardSizeWidth = 5;
@@ -19,9 +19,19 @@ const Y = 'Y';
 const Z = 'Z';
 
 var pieces = [F, I, L, N, P, T, U, V, W, X, Y, Z];
-
 //endvar
 
+function mapArrayToXY(dem) {
+
+    var myMap = new Map();
+    var k = 0;
+    for (let i = 0; i < dem; i++) {
+        for (let j = 0; j < dem; j++, k++) {
+            myMap.set(`${i},${j}`, k);
+        }
+    }
+    return myMap;
+}
 
 function createBoard(size) {
     var board = new Array(size * size);
@@ -34,7 +44,8 @@ function createBoard(size) {
 }
 
 function createPiece(type) {
-    console.log("___createPiece___");
+    if (debugConsole)
+        console.log("___createPiece___");
     var width = 5;//max width
     var height = 5;//max height
 
@@ -142,13 +153,15 @@ function printPiece(charArray) {
         for (let j = 0; j < dem; j++ , k++) {
             msg +=charArray[k];
         }
-        console.log(msg);
+        console.log(`${i} => ` + msg);
         msg = "";
     }
 }
 
 function rotatePiece(piece) {
-    console.log("___rotatePiece___");
+    if (debugConsole)
+        console.log("___rotatePiece___");
+
     var dem = Math.sqrt(piece.length);
     var length = dem * dem;
 
@@ -181,7 +194,8 @@ function shiftStackUp(piece) {
     var dem = Math.sqrt(piece.length);
     var length = dem * dem;
 
-    console.log("___shiftStackUp___");
+    if (debugConsole)
+     console.log("___shiftStackUp___");
     //moves the index of the piece to 0,0
     var newPiece = new Array(length);
     for (let i = 0; i < length; i++) {
@@ -192,7 +206,8 @@ function shiftStackUp(piece) {
     for (let i = 0; i < length; i++) {
         if (piece[i] != '-') {
             startCopying = true;
-            console.log("Started copying at, " + i+ " because i=="+ piece[i]);
+            if (debugConsole)
+                console.log("Started copying at, " + i+ " because i=="+ piece[i]);
         }
         if (startCopying) {
             while (i % dem != 0)
@@ -211,8 +226,8 @@ function shiftStackUp(piece) {
 }
 
 function howEmptyLeft(piece) {
-
-    console.log("___howEmptyLeft___");
+    if (debugConsole)
+        console.log("___howEmptyLeft___");
     let dem = Math.sqrt(piece.length);
     let length = piece.length;
 
@@ -225,7 +240,8 @@ function howEmptyLeft(piece) {
         for (let i = length - a; i >= b; i = i - dem) {
             if (piece[i] != '-') {
                 movLeft = false;
-                console.log("Found at, " + i);
+                if (debugConsole)
+                    console.log("Found at, " + i);
             }
     
         }
@@ -283,24 +299,20 @@ function rotateAndNormalize(piece) {
     return cp;
 }
 
-function placePieceBoard(board, piece, posx, posy) {
+function checkPieceAgainstBoard(board, piece, posx, posy) {
+    //returns 1 if piece can be set into the board
+    //returns -1 if the board is blocking the piece
     var hasFailed = false;
     var boardDem = Math.sqrt(board.length);
-    var pieceDem = Math.sqrt(piece.length);
+    var pieceWidth = realWidthOfPiece(piece);
+    var pieceHeight = realHeightOfPiece(piece);
 
-    //check bounds
-    if (((posx + pieceDem) >= boardDem) || ((posy + pieceDem) >= boardDem)) {
-        if (debugConsole) {
-            console.log("___placePieceBoard___")
-            console.log("check bounds failed")
+    for (let i = posx; i < posx + pieceWidth; i++ ) {
+        for (let j = posy; j < posy + pieceHeight; j++) {
+            if (board[mapBoard.get(`${j},${i}`)] != '-') {
+                hasFailed = true;
+            }
         }
-
-        return -1;
-    }
-    //end check bounds
-
-    for (let i = posx; i < pieceDem*pieceDem; i++) {
-
     }
        
 
@@ -313,14 +325,152 @@ function placePieceBoard(board, piece, posx, posy) {
     }
 }
 
+function setPieceIntoBoard(board, piece, posx, posy) {
 
+    var boardDem = Math.sqrt(board.length);
+    var pieceWidth = realWidthOfPiece(piece);
+    var pieceHeight = realHeightOfPiece(piece);
+
+    var pi = 0;
+    var pj = 0;
+    for (let i = posx; i < posx + pieceWidth; i++,pi++) {
+        for (let j = posy; j < posy + pieceHeight; j++,pj++) {
+            if (board[mapBoard.get(`${j},${i}`)] == '-') {
+                board[mapBoard.get(`${j},${i}`)] = piece[mapPiece.get(`${pi},${pj}`)];
+            }
+        }
+    }
+
+}
+
+function realWidthOfPiece(piece) {
+    var pieceDem = Math.sqrt(piece.length);
+    var atEndofPiece = false;
+    var width = 0;
+
+    var vert = [0, 5, 10, 15, 20, 1, 6, 11, 16, 21, 2, 7, 12, 17, 22, 3, 8, 13, 18, 23, 4, 9, 14, 19, 24];
+
+    var c1 = false;
+    var c2 = false;
+    var c3 = false;
+    var c4 = false;
+    var c5 = false;
+
+    var k = 0;
+    for (var i = 0; i < 5; i++) {
+        for (var j = 0; j < 5; j++,k++) {
+            if (piece[vert[k]] != '-') {
+                switch (i) {
+                    case 0:
+                        c1 = true;
+                        break;
+                    case 1:
+                        c2 = true;
+                        break;
+                    case 2:
+                        c3 = true;
+                        break;
+                    case 3:
+                        c4 = true;
+                        break;
+                    case 4:
+                        c5 = true;
+                        break;
+                }
+            }
+
+        }
+    }
+
+    if (c1)
+        width++;
+    if (c2)
+        width++;
+    if (c3)
+        width++;
+    if (c4)
+        width++;
+    if (c5)
+        width++;
+
+    return width;
+}
+
+function realHeightOfPiece(piece) {
+    var pieceDem = Math.sqrt(piece.length);
+    var atEndofPiece = false;
+    var width = 0;
+
+    var r1 = false;
+    var r2 = false;
+    var r3 = false;
+    var r4 = false;
+    var r5 = false;
+
+    var k = 0;
+    for (var i = 0; i < 5; i++) {
+        for (var j = 0; j < 5; j++ , k++) {
+            if (piece[k] != '-') {
+                switch (i) {
+                    case 0:
+                        r1 = true;
+                        break;
+                    case 1:
+                        r2 = true;
+                        break;
+                    case 2:
+                        r3 = true;
+                        break;
+                    case 3:
+                        r4 = true;
+                        break;
+                    case 4:
+                        r5 = true;
+                        break;
+                }
+            }
+
+        }
+    }
+
+    if (r1)
+        width++;
+    if (r2)
+        width++;
+    if (r3)
+        width++;
+    if (r4)
+        width++;
+    if (r5)
+        width++;
+
+    return width;
+}
+
+
+var mapBoard = mapArrayToXY(10);
+var mapPiece = mapArrayToXY(5);
 var board = createBoard(10);
-var pI = createPiece(I);
-placePieceBoard(board, pI, 0, 0);
+var pN = createPiece(N);
+
+board[10] = '.';
+printPiece(pN);
+printPiece(board);
+console.log(checkPieceAgainstBoard(board, pN, 0, 0));
+setPieceIntoBoard(board, pN, 0, 0);
 printPiece(board);
 
 
+//var pI = createPiece(I);
 
+//console.log("Width = " + realWidthOfPiece(pI));
+//console.log("Height = " + realHeightOfPiece(pI));
+//printPiece(pI);
+
+//pI = rotateAndNormalize(pI);
+//console.log("Width = " + realWidthOfPiece(pI));
+//console.log("Height = " + realHeightOfPiece(pI));
+//printPiece(pI);
 
 
 

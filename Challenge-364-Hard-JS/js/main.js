@@ -21,6 +21,17 @@ const Z = 'Z';
 var pieces = [F, I, L, N, P, T, U, V, W, X, Y, Z];
 //endvar
 
+function mapArrayToXY(dem) {
+
+    var myMap = new Map();
+    var k = 0;
+    for (let i = 0; i < dem; i++) {
+        for (let j = 0; j < dem; j++, k++) {
+            myMap.set(`${i},${j}`, k);
+        }
+    }
+    return myMap;
+}
 
 function createBoard(size) {
     var board = new Array(size * size);
@@ -142,7 +153,7 @@ function printPiece(charArray) {
         for (let j = 0; j < dem; j++ , k++) {
             msg +=charArray[k];
         }
-        console.log(msg);
+        console.log(`${i} => ` + msg);
         msg = "";
     }
 }
@@ -288,24 +299,27 @@ function rotateAndNormalize(piece) {
     return cp;
 }
 
-function placePieceBoard(board, piece, posx, posy) {
+function checkPieceAgainstBoard(board, piece, posx, posy) {
+    //returns 1 if piece can be set into the board
+    //returns -1 if the board is blocking the piece
     var hasFailed = false;
     var boardDem = Math.sqrt(board.length);
-    var pieceDem = Math.sqrt(piece.length);
+    var pieceWidth = realWidthOfPiece(piece);
+    var pieceHeight = realHeightOfPiece(piece);
 
-    //check bounds
-    if (((posx + pieceDem) >= boardDem) || ((posy + pieceDem) >= boardDem)) {
-        if (debugConsole) {
-            console.log("___placePieceBoard___")
-            console.log("check bounds failed")
+    var pi = 0;
+    var pj = 0;
+    for (let i = 0; i <pieceWidth; i++ ) {
+        for (let j = 0; j < pieceHeight; j++) {
+            if (piece[mapPiece.get(`${j},${i}`)] != '-') {
+                if (board[mapBoard.get(`${j + posy},${i + posx}`)] != '-')  {
+
+                    hasFailed = true;
+                }
+                console.log("@ i="+i+" j="+j)
+
+            }
         }
-
-        return -1;
-    }
-    //end check bounds
-
-    for (let i = posx; i < pieceDem*pieceDem; i++) {
-
     }
        
 
@@ -316,6 +330,49 @@ function placePieceBoard(board, piece, posx, posy) {
     else {
         return 1;
     }
+}
+
+function setPieceIntoBoard(board, piece, posx, posy) {
+
+    var pieceVar = "";
+
+    var boardDem = Math.sqrt(board.length);
+    var pieceWidth = realWidthOfPiece(piece);
+    var pieceHeight = realHeightOfPiece(piece);
+
+
+    var boardPositions = new Array();
+    var piecePositions = new Array();
+    for (let i = 0; i < pieceWidth; i++) {
+        for (let j = 0; j < pieceHeight; j++) {
+            if (piece[mapPiece.get(`${j},${i}`)] != '-') {
+                pieceVar = piece[mapPiece.get(`${j},${i}`)];
+                piecePositions.push(mapBoard.get(`${j},${i}`));
+            }
+    
+            
+        }
+    }
+
+    var pieceDem = Math.sqrt(piece.length);
+
+    var pj = 0;
+    var pi = 0;
+    var k = 0;
+    for (let i = 0; i < pieceHeight; i++) {
+        for (let j = 0; j < pieceWidth; j++) {
+            if (board[mapBoard.get(`${i + posy},${j + posx}`)] == '-') {
+                board[mapBoard.get(`${i + posy},${j + posx}`)] = piece[mapPiece.get(`${i},${j}`)];
+            }
+        }
+
+    }
+
+
+
+
+
+ 
 }
 
 function realWidthOfPiece(piece) {
@@ -423,17 +480,32 @@ function realHeightOfPiece(piece) {
 }
 
 
+var mapBoard = mapArrayToXY(10);
+var mapPiece = mapArrayToXY(5);
+var board = createBoard(10);
+var pN = createPiece(N);
 
-var pI = createPiece(I);
 
-console.log("Width = " + realWidthOfPiece(pI));
-console.log("Height = " + realHeightOfPiece(pI));
-printPiece(pI);
+printPiece(pN);
+board[31] = '.';
+printPiece(board);
+console.log(checkPieceAgainstBoard(board, pN, 0, 0));
+setPieceIntoBoard(board, pN, 0, 0);
+printPiece(board);
 
-pI = rotateAndNormalize(pI);
-console.log("Width = " + realWidthOfPiece(pI));
-console.log("Height = " + realHeightOfPiece(pI));
-printPiece(pI);
+
+//var pI = createPiece(I);
+
+//console.log("Width = " + realWidthOfPiece(pI));
+//console.log("Height = " + realHeightOfPiece(pI));
+//printPiece(pI);
+
+//pI = rotateAndNormalize(pI);
+//console.log("Width = " + realWidthOfPiece(pI));
+//console.log("Height = " + realHeightOfPiece(pI));
+//printPiece(pI);
+
+
 
 
 //var canvas = document.querySelector('canvas');

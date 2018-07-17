@@ -58,6 +58,9 @@
       <PackagePath>images\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\js\functions.js">
+      <PackagePath>js\functions.js</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\js\main.js">
       <PackagePath>js\main.js</PackagePath>
     </AppxPackagedFile>

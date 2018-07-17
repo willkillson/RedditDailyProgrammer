@@ -32,13 +32,13 @@
     <AppXManifest Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\bin\Release\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-07-16T21:02:55.046</Modified>
+      <Modified>2018-07-17T08:02:00.418</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\index.html">
       <PackagePath>index.html</PackagePath>
-      <Modified>2018-07-16T21:02:03.062</Modified>
+      <Modified>2018-07-17T07:41:59.142</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\UnitTester.html">
       <PackagePath>UnitTester.html</PackagePath>
@@ -78,9 +78,13 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-07-16T21:02:03.061</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\js\functions.js">
+      <PackagePath>js\functions.js</PackagePath>
+      <Modified>2018-07-17T08:01:19.805</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\js\main.js">
       <PackagePath>js\main.js</PackagePath>
-      <Modified>2018-07-17T05:53:23.150</Modified>
+      <Modified>2018-07-17T08:01:53.303</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\test\tests.js">
       <PackagePath>test\tests.js</PackagePath>
@@ -93,7 +97,7 @@
     <AppxPackagedFile Include="C:\Users\willk\Desktop\programming\RedditDailyProgrammer\Challenge-364-Hard-JS\bin\Release\ReverseMap\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-07-16T21:02:54.905</Modified>
+      <Modified>2018-07-17T08:02:00.307</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

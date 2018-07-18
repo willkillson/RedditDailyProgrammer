@@ -11,14 +11,29 @@
  * 
  * 
  */ 
- 
+
+var remainingPieces = new Array();
+for (let i = 0; i < pieces.length; i++) {
+    var cp = createPiece(pieces[i]);
+    remainingPieces.push(cp);
+}
+
+var xpos = 0;//current position x to find the best piece
+var ypos = 0;//current position y to find the best piece
+
+var bestPiecePos = 0;//to remeber what the best pieces position is in the array
+var bestPieceRotation = 0;//to remember what the best piece rotation is, could be 1-4 for four different rotation positions
+var bestPieceAmount = 0;//the score to find the best piece/rotation for the current position
+
+for (let i = 0; i < remainingPieces.length; i++) {//go through all the pieces
+    for (let j = 0; j < 4; j++) {//go through all the rotations
+
+    }
+}
 
 
-
-
-var cp = createPiece(I);
-var cp2 = createPiece(N);
 var board = createBoard(10);
+
 
 mSetPiece(board, cp, 0, 0);
 mSetPiece(board, cp2, 5, 5);

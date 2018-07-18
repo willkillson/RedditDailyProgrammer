@@ -22,10 +22,12 @@ for (let i = 0; i < pieces.length; i++) {
     remainingPieces.push(piece);
 }
 
+
+
 var xpos = 0;//current position x to find the best piece
 var ypos = 0;//current position y to find the best piece
 
-var bestPiecePos = 0;//to remeber what the best pieces position is in the array
+var bestPiecePos;//to remeber what the best pieces is in the array
 var bestPieceRotation = 0;//to remember what the best piece rotation is, could be 1-4 for four different rotation positions
 var bestPieceAmount = 0;//the score to find the best piece/rotation for the current position
 
@@ -38,7 +40,11 @@ for (let i = 0; i < remainingPieces.length; i++) {//go through all the pieces
 
 var board = createBoard(10);
 
-console.log(remainingPieces);
+console.log(printPiece(remainingPieces[0].matrix));
+
+remainingPieces[0].rotate();
+
+console.log(printPiece(remainingPieces[0].matrix));
 
 console.log(scoreRows(board,10));
 printPiece(board);

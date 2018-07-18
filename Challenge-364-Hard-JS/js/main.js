@@ -38,16 +38,6 @@ for (let i = 0; i < remainingPieces.length; i++) {//go through all the pieces
 }
 
 
-var board = createBoard(10);
-
-console.log(printPiece(remainingPieces[0].matrix));
-
-remainingPieces[0].rotate();
-
-console.log(printPiece(remainingPieces[0].matrix));
-
-console.log(scoreRows(board,10));
-printPiece(board);
 
 
 

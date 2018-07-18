@@ -67,6 +67,7 @@ function scoreRows(board, dem) {
     return score;
 }
 
+
 //creation
 
 function createBoard(size) {
@@ -522,4 +523,18 @@ function mSetPiece(board, piece, posx, posy) {
         return width;
     }
 
+}
+function removePiece(board, type) {
+
+}
+
+//objects
+function Piece() {
+    this.matrix;
+    this.type;
+
+    this.init = function (piece, type) {
+        this.matrix = piece;
+        this.type = type;
+    }
 }

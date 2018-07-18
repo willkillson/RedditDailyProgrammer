@@ -13,9 +13,13 @@
  */ 
 
 var remainingPieces = new Array();
+var usedPieces = new Array();
+
 for (let i = 0; i < pieces.length; i++) {
-    var cp = createPiece(pieces[i]);
-    remainingPieces.push(cp);
+
+    var piece = new Piece();
+    piece.init(createPiece(pieces[i]), pieces[i]);
+    remainingPieces.push(piece);
 }
 
 var xpos = 0;//current position x to find the best piece
@@ -27,16 +31,15 @@ var bestPieceAmount = 0;//the score to find the best piece/rotation for the curr
 
 for (let i = 0; i < remainingPieces.length; i++) {//go through all the pieces
     for (let j = 0; j < 4; j++) {//go through all the rotations
-
+        //try a piece
     }
 }
 
 
 var board = createBoard(10);
 
+console.log(remainingPieces);
 
-mSetPiece(board, cp, 0, 0);
-mSetPiece(board, cp2, 5, 5);
 console.log(scoreRows(board,10));
 printPiece(board);
 

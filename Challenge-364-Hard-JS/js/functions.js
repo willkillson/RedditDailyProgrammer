@@ -48,6 +48,24 @@ function kArrayToXY(dem) {
     }
     return myMap;
 }
+function scoreRows(board, dem) {
+
+    var score = new Array(dem);
+    for (let i = 0; i < score.length; i++) {
+        score[i] = 0;
+    }
+
+    var k = 0;
+    for (let i = 0; i < dem; i++) {
+        for (let j = 0; j < dem; j++,k++) {
+            if ((board[k] != '-') && (board[k] != '.')) {
+                score[i]++;
+            }
+        }
+    }
+
+    return score;
+}
 
 //creation
 

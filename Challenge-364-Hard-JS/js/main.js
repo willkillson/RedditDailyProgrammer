@@ -17,9 +17,12 @@
 
 
 var cp = createPiece(I);
+var cp2 = createPiece(N);
 var board = createBoard(10);
 
-console.log(mSetPiece(board, cp, 3, 1));
+mSetPiece(board, cp, 0, 0);
+mSetPiece(board, cp2, 5, 5);
+console.log(scoreRows(board,10));
 printPiece(board);
 
 

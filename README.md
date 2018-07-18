@@ -11,4 +11,4 @@ https://www.reddit.com/r/dailyprogrammer/
 - [x] Challenge-361-Easy-Java
 - [x] Challenge-362-Intermediate-Java
 - [x] Challenge-363-Easy-Java
-- [ ] Challenge-364-Hard-JS 
+- [ ] Challenge-364-Hard-JS [hard_tiling_with_pentominos](https://www.reddit.com/r/dailyprogrammer/comments/8t4440/20180622_challenge_364_hard_tiling_with_pentominos/?st=jjgnz6ue&sh=bb5d901f)
